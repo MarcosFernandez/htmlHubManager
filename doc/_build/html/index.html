@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTML Web Hub &mdash; HTML Web Hub 0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HTML Web Hub 0.0 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="#">HTML Web Hub 0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="html-web-hub">
+<h1>HTML Web Hub<a class="headerlink" href="#html-web-hub" title="Permalink to this headline">¶</a></h1>
+<p>HTML Hub Manager creates an HTML document indexing all web locations registered in a JSON database. This JSON database could be managed through a set of commands
+to create, update, remove and show entries.</p>
+<div class="section" id="json-database-management">
+<h2>JSON Database Management<a class="headerlink" href="#json-database-management" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-new-register">
+<h3>Create new register<a class="headerlink" href="#create-new-register" title="Permalink to this headline">¶</a></h3>
+<p>To insert a new html entry you must use <tt class="docutils literal"><span class="pre">-create-entry</span></tt> command. Insert an appropiate <em>title name</em> and <em>web location</em>. It can be an url or a path to some html document.</p>
+<div class="highlight-python"><pre>htmlHubManager.py -create-entry
+Insert title: NCBI
+Insert web location: http://www.ncbi.nlm.nih.gov/
+
+htmlHubManager.py -create-entry
+Insert title: MyWeb
+Insert web location: ./mydirectory/myWeb.html</pre>
+</div>
+</div>
+<div class="section" id="update-register">
+<h3>Update register<a class="headerlink" href="#update-register" title="Permalink to this headline">¶</a></h3>
+<p>To update a given register you must know its ID (<tt class="docutils literal"><span class="pre">see</span> <span class="pre">show</span> <span class="pre">registers</span></tt>) and use <tt class="docutils literal"><span class="pre">-update-entry</span></tt> command.</p>
+<div class="highlight-python"><pre>htmlHubManager.py -update-entry -id 0
+Insert new title: Genome Browser
+Insert new web location: http://genome.ucsc.edu/
+Entry updated successfully :
+    ID: 0
+    title: Genome Browser
+    web_location: http://genome.ucsc.edu/</pre>
+</div>
+</div>
+<div class="section" id="remove-register">
+<h3>Remove register<a class="headerlink" href="#remove-register" title="Permalink to this headline">¶</a></h3>
+<p>For removing an entry use <tt class="docutils literal"><span class="pre">-delete-entry</span></tt> command. You must know the register ID to remove an entry (<tt class="docutils literal"><span class="pre">see</span> <span class="pre">show</span> <span class="pre">registers</span></tt>).</p>
+<div class="highlight-python"><pre>htmlHubManager.py -delete-entry -id 2
+Do you want to delete entry 2 title UAB and web_location http://www.uab.cat (Y/N):Y
+Entry 2 was successfully deleted!!</pre>
+</div>
+</div>
+<div class="section" id="show-registers">
+<h3>Show registers<a class="headerlink" href="#show-registers" title="Permalink to this headline">¶</a></h3>
+<p>To show all registers just run <tt class="docutils literal"><span class="pre">-show</span></tt> and to show a given register use the register id.</p>
+<div class="highlight-python"><pre>All registers:
+htmlHubManager.py -show
+
+Register 0
+htmlHubManager.py -show -id 0</pre>
+</div>
+</div>
+</div>
+<div class="section" id="html-building">
+<h2>HTML Building<a class="headerlink" href="#html-building" title="Permalink to this headline">¶</a></h2>
+<p>To create a web document with a table indexing a set of web sites, just run the command <tt class="docutils literal"><span class="pre">-build-html</span></tt>.</p>
+<div class="highlight-python"><pre>htmlHubManager.py -build-html -file-html mySite.html</pre>
+</div>
+<p>This command will output a html file (mySite.html) and a cascade style sheet file (style.css) located at the same directory of mySite.html.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">HTML Web Hub</a><ul>
+<li><a class="reference internal" href="#json-database-management">JSON Database Management</a><ul>
+<li><a class="reference internal" href="#create-new-register">Create new register</a></li>
+<li><a class="reference internal" href="#update-register">Update register</a></li>
+<li><a class="reference internal" href="#remove-register">Remove register</a></li>
+<li><a class="reference internal" href="#show-registers">Show registers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#html-building">HTML Building</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="#">HTML Web Hub 0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Marcos Fernandez-Callejo.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
