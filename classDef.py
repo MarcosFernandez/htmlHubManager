@@ -75,7 +75,9 @@ class JSONEdit(JSONManager):
         if self.type_edit == "CREATE":
             newID = -1
             if self.jsonContent:
-                newID = int(sorted(self.jsonContent.keys())[-1])
+                newID = int(sorted([int(numeric_string) for numeric_string in self.jsonContent.keys()])[-1])
+
+
             
             newID = newID + 1
             self.jsonContent[str(newID)] = {"title":title,"web_location":webLocation}   
